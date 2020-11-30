@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yh.widgetdemo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WidgetDemo">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AtyUsingRadioGroup"/>
+        <activity android:name=".AtyUsingCheckBox"/>
+        <activity android:name=".AtyUsingDatePicker"/>
+        <activity android:name=".AtyUsingTimePicker"/>
+        <activity android:name=".AtyUsingSpinner"/>
+        <activity android:name=".AtyUsingAutoComplete"/>
+        <activity android:name=".AtyUsingSeekBar"/>
+        <activity android:name=".AtyUsingGridView"/>
+        <activity android:name=".AtyUsingProgressDialog"/>
+        <activity android:name=".AtyUsingNotification"/>
+        <activity android:name=".AtyUsingScrollView"/>
+        <activity android:name=".AtyUsingRatingBar"/>
+        <activity android:name=".AtyUsingImageSwitcher"/>
+        <activity android:name=".AtyUsingGallery"/>
+    </application>
+
+</manifest>

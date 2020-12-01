@@ -30,6 +30,8 @@
         <activity android:name=".AtyUsingRatingBar"/>
         <activity android:name=".AtyUsingImageSwitcher"/>
         <activity android:name=".AtyUsingGallery"/>
+        <activity android:name=".AtyUsingProgressBar"/>
+        <activity android:name=".AtyUsingEditText"/>
     </application>
 
 </manifest>

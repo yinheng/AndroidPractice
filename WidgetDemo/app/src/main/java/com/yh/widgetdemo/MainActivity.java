@@ -1,13 +1,14 @@
 package com.yh.widgetdemo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private ListView listView;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         arrayAdapter.add(new ListViewCellData("ratingBar", MainActivity.this, new Intent().setClass(MainActivity.this, AtyUsingRatingBar.class)));
         arrayAdapter.add(new ListViewCellData("imageSwitcher", MainActivity.this, new Intent().setClass(MainActivity.this, AtyUsingImageSwitcher.class)));
         arrayAdapter.add(new ListViewCellData("gallery", MainActivity.this, new Intent().setClass(MainActivity.this, AtyUsingGallery.class)));
+        arrayAdapter.add(new ListViewCellData("progressBar", MainActivity.this, new Intent().setClass(MainActivity.this, AtyUsingProgressBar.class)));
+        arrayAdapter.add(new ListViewCellData("editText", MainActivity.this, new Intent().setClass(MainActivity.this, AtyUsingEditText.class)));
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -40,6 +43,20 @@ public class MainActivity extends AppCompatActivity {
                 arrayAdapter.getItem(position).startActivity();
             }
         });
+    }
 
+    private long lastBackTime = 0;
+
+    @Override
+    public void onBackPressed() {
+
+        // 后退键连续两次才会退出应用，防止误触操作
+        if ((System.currentTimeMillis() - lastBackTime) > 1000) {
+            lastBackTime = System.currentTimeMillis();
+            Toast.makeText(this, "再按一次返回键退出", Toast.LENGTH_SHORT).show();
+        } else {
+            lastBackTime = 0;
+            super.onBackPressed();
+        }
     }
 }

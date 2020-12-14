@@ -32,7 +32,7 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
             listViewCellList.add(new ListViewCell("小明" + i, "男", i));
         }
 //        列表适配数据
-        BaseAdapter baseAdapter = new ListViewAdapter(listViewCellList);
+        BaseAdapter baseAdapter = new ListViewAdapter2(listViewCellList);
         listView = findViewById(R.id.listView);
         listView.setAdapter(baseAdapter);
 //        给列表添加点击事件

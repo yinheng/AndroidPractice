@@ -1,27 +1,35 @@
 package com.yh.listviewdemo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
-public class  MainActivity extends AppCompatActivity {
-    private Button button;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("MainActivity", "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = findViewById(R.id.btnList);
-        button.setOnClickListener(new View.OnClickListener() {
+
+        findViewById(R.id.btnList).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent();
                 i.setClass(MainActivity.this, ListViewActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+        findViewById(R.id.btnRecycler).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent();
+                i.setClass(MainActivity.this, RecyclerViewActivity.class);
                 startActivity(i);
 
             }

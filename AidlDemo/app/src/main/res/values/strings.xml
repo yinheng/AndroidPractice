@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AidlDemo</string>
+    <string name="get_name">get name</string>
+    <string name="add_user">add user</string>
+    <string name="get_users">get users</string>
+    <string name="name">name</string>
+    <string name="age">age</string>
+    <string name="next">next</string>
+</resources>

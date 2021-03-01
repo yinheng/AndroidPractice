@@ -1,5 +1,6 @@
 package com.yh.listviewdemo;
 
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,11 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         this.listViewCells = listViewCells;
     }
 
+    public void update(List<ListViewCell> listViewCells) {
+        this.listViewCells = listViewCells;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return listViewCells.size();
@@ -38,6 +44,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         holder.imageView.setImageResource(R.mipmap.img1);
         holder.nameTextView.setText(listViewCells.get(position).toString());
         holder.decTextView.setText(listViewCells.get(position).getSex());
+
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -44,7 +44,9 @@ public class RetrofitUtils {
                 tweets = response.body();
                 if (tweets != null) {
                     for (Tweet tweet : tweets) {
-                        tweet.setImgList(mockImages());
+                        if(!(tweet.getContent() == null && tweet.getSender() == null && tweet.getComments() == null)){
+                            tweet.setImgList(mockImages());
+                        }
                     }
                 }
             }

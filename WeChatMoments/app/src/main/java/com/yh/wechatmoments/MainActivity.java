@@ -1,16 +1,17 @@
 package com.yh.wechatmoments;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -28,6 +29,8 @@ import com.yh.wechatmoments.retrofit.RetrofitUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView profileImgView;
@@ -43,8 +46,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
         AppBarLayout appBarLayout = findViewById(R.id.app_bar);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle(null);
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolBarLayout.setTitle(getString(R.string.title));
         toolBarLayout.setCollapsedTitleTextColor(Color.BLACK);
@@ -53,10 +57,11 @@ public class MainActivity extends AppCompatActivity {
         imageLoader = new ImageLoader.ImageLoaderBuilder(this, "img")
                 .build();
 
-        profileImgView = findViewById(R.id.background);
+        //profileImgView = findViewById(R.id.background);
         nick = findViewById(R.id.nick);
         avatar = findViewById(R.id.avatar);
         recyclerView = findViewById(R.id.tweetList);
+        LinearLayout userInfo = findViewById(R.id.fab);
 
         progressBar = findViewById(R.id.processBar);
         progressBar.setVisibility(View.VISIBLE);
@@ -80,10 +85,16 @@ public class MainActivity extends AppCompatActivity {
                 if (verticalOffset >= 0) {
                     // 展开状态
                     swipeRefreshLayout.setEnabled(true);
+                    userInfo.setVisibility(View.VISIBLE);
+
+                    toolBarLayout.setTitleEnabled(false);
                 } else {
 
                     // 折叠状态
                     swipeRefreshLayout.setEnabled(false);
+                    userInfo.setVisibility(View.GONE);
+
+                    toolBarLayout.setTitleEnabled(true);
                 }
             }
         });
@@ -117,14 +128,17 @@ public class MainActivity extends AppCompatActivity {
 
     class GetTweetsAsyncTask extends AsyncTask<Boolean, Integer, List<Tweet>> {
 
+        @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
         protected List<Tweet> doInBackground(Boolean... booleans) {
-            Global.TWEETS = RetrofitUtils.getTweets();
-            SharedPreferences sharedPreferences = MainActivity.this.getSharedPreferences("Tweets", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("TweetList", Global.TWEETS.toString());
-            editor.apply();
-            Log.e("sharedPreferences", sharedPreferences.getString("TweetList", "null"));
+            List<Tweet> tweets = RetrofitUtils.getTweets();
+            Global.TWEETS = tweets.stream().filter(new Predicate<Tweet>() {
+                @Override
+                public boolean test(Tweet tweet) {
+                    return !(tweet.getContent() == null && tweet.getSender() == null && tweet.getComments() == null) ;
+                }
+            }).collect(Collectors.toList());
+
             return Global.TWEETS;
         }
 

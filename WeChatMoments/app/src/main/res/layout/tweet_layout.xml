@@ -11,10 +11,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
+        <com.yh.wechatmoments.RoundImageView
             android:id="@+id/avatar"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
 
@@ -29,32 +29,24 @@
                 android:id="@+id/nick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="test" />
+                android:textColor="@color/light_blue"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <GridView
-                android:id="@+id/imgs"
-                android:visibility="gone"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:numColumns="3" />
+                android:textColor="@color/black"
+                android:lineSpacingExtra="1dp"
+                android:letterSpacing="0.05"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/imgRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <LinearLayout
-                android:id="@+id/imgLIst"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-
             <androidx.cardview.widget.CardView
+                android:id="@+id/commentsCardView"
                 app:contentPadding="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

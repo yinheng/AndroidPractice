@@ -1,9 +1,8 @@
-package com.yh.wechatmoments.imageloader;
+package com.yh.imageloader;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Log;

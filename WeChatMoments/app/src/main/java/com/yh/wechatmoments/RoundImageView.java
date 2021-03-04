@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class RoundImageView extends androidx.appcompat.widget.AppCompatImageView {
+@SuppressLint("AppCompatCustomView")
+public class RoundImageView extends ImageView {
     private int width;
     private int height;
 

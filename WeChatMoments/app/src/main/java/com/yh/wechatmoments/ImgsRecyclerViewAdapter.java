@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yh.wechatmoments.imageloader.ImageLoader;
+import com.yh.imageloader.ImageLoader;
 import com.yh.wechatmoments.model.Image;
 
 import java.util.List;

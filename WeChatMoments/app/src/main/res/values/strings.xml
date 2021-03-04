@@ -1,8 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">WeChatMoments</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="loading">正在加载</string>
     <string name="load_end">加载到底部</string>
     <string name="action_settings">Settings</string>
     <string name="title">朋友圈</string>
+    <string name="action_change">更换背景图片</string>
+    <string name="action_cancel">取消</string>
 </resources>

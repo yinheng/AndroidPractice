@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import com.yh.wechatmoments.imageloader.ImageLoader;
+import com.yh.imageloader.ImageLoader;
 import com.yh.wechatmoments.model.Image;
 
 import java.util.List;

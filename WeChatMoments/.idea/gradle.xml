@@ -11,6 +11,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/AsyncTask" />
+            <option value="$PROJECT_DIR$/ImageLoader" />
+            <option value="$PROJECT_DIR$/PaginationAdapter" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

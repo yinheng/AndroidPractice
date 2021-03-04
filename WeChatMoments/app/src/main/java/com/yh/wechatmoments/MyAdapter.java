@@ -15,7 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yh.wechatmoments.imageloader.ImageLoader;
+import com.yh.imageloader.ImageLoader;
 import com.yh.wechatmoments.model.Comment;
 import com.yh.wechatmoments.model.Image;
 import com.yh.wechatmoments.model.Sender;
@@ -218,12 +218,11 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 }
             }
             setLoadState(LOADING_COMPLETE);
-            notifyItemRangeChanged(currentItem, tweetList.size());
         } else {
             Log.e("onScrollState addItems", "LOADING_END");
             setLoadState(LOADING_END);
-            notifyItemRangeChanged(currentItem, tweetList.size());
         }
+        notifyItemRangeChanged(currentItem, tweetList.size());
 
     }
 }

@@ -1,4 +1,4 @@
-package com.yh.wechatmoments.imageloader;
+package com.yh.imageloader;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;

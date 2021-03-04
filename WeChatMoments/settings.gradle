@@ -1,2 +1,5 @@
+include ':PaginationAdapter'
+include ':AsyncTask'
+include ':ImageLoader'
 include ':app'
 rootProject.name = "WeChatMoments"

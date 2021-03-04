@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.yh.wechatmoments.ScrollingActivity">
+    <item
+        android:id="@+id/action_change"
+        android:title="@string/action_change" />
+    <item
+        android:id="@+id/action_cancel"
+        android:title="@string/action_cancel" />
+</menu>

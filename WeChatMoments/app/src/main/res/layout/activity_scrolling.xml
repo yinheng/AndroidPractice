@@ -65,7 +65,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:padding="6dp"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
 
             <com.yh.wechatmoments.RoundImageView
                 android:id="@+id/avatar"

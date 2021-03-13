@@ -1,0 +1,5 @@
+include ':paginationadapter'
+include ':imageloader'
+include ':asynctask'
+include ':app'
+rootProject.name = "WeChatMoment"

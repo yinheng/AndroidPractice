@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WeChatMoment</string>
+    <string name="action_settings">Settings</string>
+    <string name="title">朋友圈</string>
+</resources>

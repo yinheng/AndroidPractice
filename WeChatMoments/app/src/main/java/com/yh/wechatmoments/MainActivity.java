@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -102,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 PopupMenu popupMenu = new PopupMenu(MainActivity.this, appBarLayout);
                 popupMenu.getMenuInflater().inflate(R.menu.menu_change_bkg_img, popupMenu.getMenu());
+                popupMenu.setGravity(Gravity.END);
                 popupMenu.show();
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -181,12 +183,13 @@ public class MainActivity extends AppCompatActivity {
                     //通过流转化成bitmap对象
                     InputStream inputStream = getContentResolver().openInputStream(imageUri);
                     Bitmap b = BitmapFactory.decodeStream(inputStream);
+
                     Log.e("MainActivity", " b = " + b);
 
-                    BitmapDrawable db = new BitmapDrawable(getResources(), b);
+                    BitmapDrawable bd = new BitmapDrawable(getResources(), b);
 
                     // 将照片显示在 ivImage上
-                    appBarLayout.setBackground(db);
+                    appBarLayout.setBackground(bd);
 
                 } catch (Throwable e) {
                     e.printStackTrace();
@@ -198,11 +201,10 @@ public class MainActivity extends AppCompatActivity {
     class GetUserAsyncTask extends com.yh.asynctask.AsyncTask<String, User> {
         @Override
         protected User doInBackground(String... strings) {
-            Global.USER = RetrofitUtils.getUser();
-
-            TweetDatabase.getInstance(MainActivity.this).getUserDao().insertUser(Global.USER);
+            User user = RetrofitUtils.getUser();
+            TweetDatabase.getInstance(MainActivity.this).getUserDao().insertUser(user);
             Log.e("getUsers", TweetDatabase.getInstance(MainActivity.this).getUserDao().getAllUsers().toString());
-            return Global.USER;
+            return user;
 
         }
 
@@ -210,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
         protected void completeExecute(User user) {
             super.completeExecute(user);
             if (user != null) {
-                Log.e("USER", Global.USER.toString());
+                Log.e("USER", user.toString());
 
                 nick.setText(user.getNick());
                 imageLoader.loadImage(user.getAvatar(), avatar);

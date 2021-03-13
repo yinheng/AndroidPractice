@@ -19,7 +19,7 @@ public class RetrofitUtils {
             .baseUrl("http://thoughtworks-ios.herokuapp.com/user/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-    private static final GetRequest_interface request = retrofit.create(GetRequest_interface.class);
+    private static final TweetRemoteApi request = retrofit.create(TweetRemoteApi.class);
 
     public static User getUser() {
         User user = null;

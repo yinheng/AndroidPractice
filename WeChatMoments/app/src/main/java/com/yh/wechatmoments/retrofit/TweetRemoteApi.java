@@ -10,7 +10,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Url;
 
-public interface GetRequest_interface {
+public interface TweetRemoteApi {
 
     @GET
     public Call<Response> getCall(@Url String url);

@@ -82,7 +82,6 @@ public class PaginationAdapter extends com.yh.paginationadapter.PaginationAdapte
 
     @Override
     public List<Tweet> findNextPage(int currentItemCount) {
-
         List<Tweet> tweets = new ArrayList<>();
         for (int i = currentItemCount; i < currentItemCount + PAGE_SIZE; i++) {
             if (i < Global.TWEETS.size()) {

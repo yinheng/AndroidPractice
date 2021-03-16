@@ -130,15 +130,15 @@ public class PlaceholderFragment extends Fragment {
         pageViewModel.getRemoteNews(new Consumer<List<News>>() {
             @Override
             public void accept(List<News> news) {
-                Log.e("PlaceholderFragment", "getRemoteData = " + news.size());
-                if (news.size() != 0) {
+                if (news != null) {
                     totalSize[0] = news.size();
+                    List<News> newsList  = news.size() > NewsAdapter.PAGE_SIZE ? news.subList(0, NewsAdapter.PAGE_SIZE) : news;
                     if (newsAdapter[0] == null) {
-                        newsAdapter[0] = new NewsAdapter(news.subList(0, 5), imageLoader, getActivity());
+                        newsAdapter[0] = new NewsAdapter(newsList, imageLoader, getActivity());
                         recyclerView.setAdapter(newsAdapter[0]);
                         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     } else {
-                        newsAdapter[0].updateData(news.subList(0, 5));
+                        newsAdapter[0].updateData(newsList);
                     }
                 }
 

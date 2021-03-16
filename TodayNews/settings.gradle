@@ -1,0 +1,3 @@
+include ':paginationadapter'
+include ':app'
+rootProject.name = "TodayNews"

@@ -28,4 +28,8 @@
         app:layout_constraintLeft_toRightOf="@id/content"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.yh.todaynews.ui.chat.DrawView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

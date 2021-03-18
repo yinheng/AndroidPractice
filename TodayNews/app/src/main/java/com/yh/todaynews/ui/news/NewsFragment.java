@@ -31,15 +31,15 @@ import java.util.function.Consumer;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class PlaceholderFragment extends Fragment {
+public class NewsFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private NewsPageViewModel newsPageViewModel;
     private ImageLoader imageLoader;
 
-    public static PlaceholderFragment newInstance(int index) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    public static NewsFragment newInstance(int index) {
+        NewsFragment fragment = new NewsFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -65,7 +65,7 @@ public class PlaceholderFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         Log.e("PlaceholderFragment", "onCreateView");
-        View root = inflater.inflate(R.layout.fragment_main, container, false);
+        View root = inflater.inflate(R.layout.news_fragment, container, false);
         SwipeRefreshLayout swipeRefreshLayout = root.findViewById(R.id.refresh);
         swipeRefreshLayout.setColorSchemeColors(Color.RED, Color.BLUE, Color.GREEN);
         swipeRefreshLayout.setDistanceToTriggerSync(300);

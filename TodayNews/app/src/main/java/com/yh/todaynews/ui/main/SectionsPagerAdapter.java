@@ -10,8 +10,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.yh.todaynews.R;
-import com.yh.todaynews.ui.news.PlaceholderFragment;
 import com.yh.todaynews.ui.chat.Tab2Fragment;
+import com.yh.todaynews.ui.news.NewsFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -39,7 +39,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (TAB_TITLES[position]) {
             case R.string.tab_text_1:
-                fragment = PlaceholderFragment.newInstance(position + 1);
+                fragment = NewsFragment.newInstance(position + 1);
                 break;
             case R.string.tab_text_2:
                 fragment = Tab2Fragment.getInstance();

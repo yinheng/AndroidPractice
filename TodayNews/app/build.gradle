@@ -16,10 +16,27 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            Properties localProp = new Properties()
+            File propFile = new File("${project.rootProject.rootDir.path}/local.properties")
+            if (propFile.exists()) {
+                localProp.load(new FileInputStream(propFile))
+            }
+
+            storeFile file("/Users/yinheng/Documents/android/yinheng.jks")
+
+            storePassword localProp.containsKey("KEYSTORE_PASS") ? localProp.getProperty("KEYSTORE_PASS") : project.hasProperty("KEYSTORE_PASS") ? KEYSTORE_PASS : System.getenv("KEYSTORE_PASS")
+            keyAlias localProp.containsKey("ALIAS_NAME") ? localProp.getProperty("ALIAS_NAME") : (project.hasProperty("ALIAS_NAME") ? ALIAS_NAME : System.getenv("ALIAS_NAME"))
+            keyPassword localProp.containsKey("ALIAS_PASS") ? localProp.getProperty("ALIAS_PASS") : project.hasProperty("ALIAS_PASS") ? ALIAS_PASS : System.getenv("ALIAS_PASS")
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {

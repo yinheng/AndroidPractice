@@ -1,5 +1,6 @@
 package com.yh.todaynews.ui.chat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,8 +27,15 @@ public class Tab2Fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab2_layout, container, false);
         TextView textView = view.findViewById(R.id.content);
+        TextView tv = view.findViewById(R.id.tv);
         assert getArguments() != null;
         textView.setText(getArguments().getString("content"));
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), MenuActivity.class));
+            }
+        });
         return view;
     }
 }

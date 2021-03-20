@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/front_size"
+        app:showAsAction="always">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/front_12"
+                    android:title="@string/front_12" />
+                <item
+                    android:id="@+id/front_14"
+                    android:title="@string/front_14" />
+                <item
+                    android:id="@+id/front_16"
+                    android:title="@string/front_16" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/simpleItem"
+        android:title="@string/simple_item" />
+    <item
+        android:id="@+id/colorMenu"
+        android:title="@string/color_menu">
+        <menu>
+            <group android:checkableBehavior="all">
+                <item
+                    android:id="@+id/green"
+                    android:title="@string/green" />
+                <item
+                    android:id="@+id/red"
+                    android:title="@string/red" />
+                <item
+                    android:id="@+id/blue"
+                    android:title="@string/blue" />
+            </group>
+        </menu>
+    </item>
+</menu>

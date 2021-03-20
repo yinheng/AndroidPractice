@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.common.WebViewActivity" />
+        <activity android:name=".ui.chat.MenuActivity"/>
     </application>
 
 </manifest>

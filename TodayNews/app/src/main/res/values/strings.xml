@@ -2,4 +2,16 @@
     <string name="app_name">TodayNews</string>
     <string name="tab_text_1">推荐</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="front_size">字体大小</string>
+    <string name="front_12">12sp</string>
+    <string name="front_14">14sp</string>
+    <string name="front_16">16sp</string>
+    <string name="simple_item">普通菜单项</string>
+    <string name="color_menu">颜色</string>
+    <string name="green">绿色</string>
+    <string name="red">红色</string>
+    <string name="blue">蓝色</string>
+    <string name="button">click me</string>
+    <string name="show_actionbar">显示ActionBar</string>
+    <string name="hide_actionbar">隐藏ActionBar</string>
 </resources>

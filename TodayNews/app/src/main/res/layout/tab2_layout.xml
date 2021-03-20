@@ -4,6 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.yh.todaynews.ui.chat.DrawView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/content"
         android:layout_width="wrap_content"
@@ -21,15 +25,11 @@
         android:padding="8dp"
         android:clickable="true"
         android:focusable="true"
-        android:text="hello"
+        android:text="@string/button"
         android:textColor="@color/black"
         android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/content"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <com.yh.todaynews.ui.chat.DrawView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">IntentDemo</string>
+    <string name="bnt_select_contact">选择联系人</string>
+</resources>
